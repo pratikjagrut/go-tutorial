@@ -34,20 +34,31 @@ func total(nums ...int) (total int) {
 	return total
 }
 
-func main() {
-	fmt.Println(addition(4, 5))
+//Recursion
+func fact(i int) int {
+	if i == 0 {
+		return 1
+	}
+	return i * fact(i-1)
+}
 
-	fmt.Println(add(4, 5, 6))
+func main() {
+	fmt.Println("Add 4,5: ", addition(4, 5))
+
+	fmt.Println("Add 4, 5, 6: ", add(4, 5, 6))
 
 	//multiple return value
 	i, j, k := multiply(4, 5)
-	fmt.Printf("%d * %d= %d\n", i, j, k)
+	fmt.Printf("Mul %d, %d: %d\n", i, j, k)
 
 	//Named return values
 	x, y := calc(17)
 	fmt.Printf("Quotient: %d, Remainder: %d\n", x, y)
 
 	//Variadic Functions
-	fmt.Println("Total: ", total(1, 2, 3, 4, 5))
-	fmt.Println("Total: ", total(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+	fmt.Println("Total 1-5: ", total(1, 2, 3, 4, 5))
+	fmt.Println("Total 1-10: ", total(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+
+	//Recursion
+	fmt.Println("Factorial of 5: ", fact(5))
 }
