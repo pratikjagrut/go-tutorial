@@ -28,4 +28,9 @@ func main() {
 	var c = true // Boolean
 	fmt.Println(!c)
 
+	var x, y, z = 0.867 + 0.5i, 4.65, true
+	fmt.Println(x) // complex128
+	fmt.Println(y)
+	fmt.Println(z)
+
 }
