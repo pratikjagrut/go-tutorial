@@ -12,7 +12,7 @@ The basic for loop has three components separated by semicolons:
 - condition expression: `i < n` *eval on every* interation
 - post statement: `i++` *exec after each iteration*
 
-*The expression need not be surrounded by parentheses ( ) but the braces { } are required.*
+*The expression `need not be surrounded by parentheses ( ) but the braces { } are required`.*
 ```go
 for i := 0; i < n; i++ {
     //business logic
