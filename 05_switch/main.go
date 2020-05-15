@@ -1,38 +1,47 @@
-//This program illustrate switch control statements
-
 package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
 func main() {
 	// ********* switch, example *********
 	//Basic switch, multiple expresssions can be seperated by commas
-	j := "A"
-	fmt.Print(j, " for ")
-	switch j {
+	A := "A"
+	fmt.Print(A, " for ")
+	switch A {
 	case "a", "A":
 		fmt.Println("apple")
 	case "b", "B":
 		fmt.Println("ball")
-	case "c", "C":
-		fmt.Println("cat")
 	default:
 		fmt.Println("Unknown letter")
 	}
 
-	// this switch can be used insteaf of if/else
+	//Prints which OS you're using
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		fmt.Printf("%s.\n", os)
+	}
+
+	//Switch with no condition
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
-		fmt.Println("It's before noon")
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
 	default:
-		fmt.Println("It's after noon")
+		fmt.Println("Good evening.")
 	}
 
-	//A type switch compares types instead of values.
+	//A type switch compares types. This can be used to know type of value
 	datatype := func(p interface{}) {
 		switch p.(type) {
 		case bool:
@@ -46,4 +55,5 @@ func main() {
 	datatype(true)
 	datatype(1)
 	datatype("go")
+
 }
