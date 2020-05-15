@@ -1,4 +1,4 @@
-# Variables and data types
+# Variables, data types and constants
 
 ## Variable
 
@@ -83,4 +83,40 @@ We can declare multiple var in one statement
 ```go
 var i, j, k int
 var x, y, z = 0.867 + 0.5i, 4.65, true
+```
+
+## Constants
+
+Go supports constants of character, string, boolean, and numeric values. Constants is declaired using `const` keyword
+
+E.g:
+```go
+const str string = "constants"
+```
+
+**Untyped and Typed**
+
+Constants can be declared with or without a type in Go. If we are declaring literal constant, then we are actually declaring declaring constants that are untyped and unnamed.
+
+E.g.:
+```go
+const str string = "constants" //Typed constant
+const i = 10 //Untyped constant, literal declaration
+const f = 3.14
+```
+The constants on the LHS of the declaration are named constants and the literal values on the RHS are unnamed constants.
+
+Typed constants don’t use the same type system as variables, they've  have their own implementation for representing the values that we associate with them.
+
+In case of typed constant, the declared type is used to associate the type’s precision limitations or kind of constant.
+
+In case of untyped constant, literal value will determine what kind.type the constant takes
+
+Every GO compiler has flexibility to implement constant as they wish, within the mandatory set of [requirements](http://golang.org/ref/spec#Constants).
+
+***You can refer main.go file for examples***
+
+To run:
+```
+go run main.go
 ```

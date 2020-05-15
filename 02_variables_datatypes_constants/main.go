@@ -1,14 +1,3 @@
-//Go's basic types are
-
-// bool
-// string
-// int  int8  int16  int32  int64
-// uint uint8 uint16 uint32 uint64 uintptr
-// byte (alias for uint8)
-// rune (alias for int32) (represents a Unicode code point)
-// float32 float64
-// complex64 complex128
-
 package main
 
 import "fmt"
@@ -32,5 +21,14 @@ func main() {
 	fmt.Println(x) // complex128
 	fmt.Println(y)
 	fmt.Println(z)
+
+	//constant values
+	//we can not reassign value to declared constant
+	const str string = "constant" //Typed constant
+	fmt.Println(str)
+
+	//const on LHS will take value and type of const on RHS
+	const number = 10.00 //Untyped constant
+	fmt.Printf("%v, %T\n", number, number)
 
 }
