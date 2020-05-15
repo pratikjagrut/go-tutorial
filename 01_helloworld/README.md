@@ -42,3 +42,10 @@ func main(){
     fmt.Println("Hello world")
 }
 ```
+
+Save it as `main.go` or `any-name-you-prefer.go`
+
+To run:
+```
+go run main.go
+```
