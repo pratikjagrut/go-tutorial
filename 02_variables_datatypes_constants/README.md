@@ -21,21 +21,45 @@ In some programming languages variable holds a `null` or `undefined` value when 
 
 ## Declaring a variable
 
+The `var` statement declares a list of variables. Type is at the last of statement.
+
 ```go
-var varName dataType = value(optional)
+var varName dataType
 ```
 E.g.:
+
 ```go
-var i int = 10
-var s string = "hello"
-var ok bool = true
+var i, j, k int
 var f float32
 var u uint
 ```
 
-**Shorthand declaration**
+**Variables with initializers**
 
-You'll encounter with this declaration method very often.
+We can initilize variable while declaring.
+
+```go
+var varName dataType = value
+```
+
+```go
+var i int = 10
+var s string = "hello"
+var ok bool = true
+```
+
+*We can omit the type of variable, it will take the type of initializers*
+
+```go
+var i = 42           // int
+var f = 3.142        // float64
+var g = "hello"      // string
+```
+
+**Short-hand declaration**
+
+This is most commonly used variable declaration inside functions.
+
 ```go
 varName := value
 ``` 
@@ -44,6 +68,17 @@ E.g.:
 i := 10
 s := "hello"
 ok := true
+```
+
+*When declaring a variable without specifying it's type the variable's type is inferred from the value on the right hand side.*
+
+```go
+var i int
+j := i // j is an int
+
+i := 42           // int
+f := 3.142        // float64
+g := 0.867 + 0.5i // complex128
 ```
 
 **Assign or Re-assign**
@@ -57,23 +92,6 @@ E.g.:
 i = 12
 s = "world"
 ok = false
-```
-
-**Type Inference**
-
-When declaring a variable without specifying an explicit type the variable's type is inferred from the value on the right hand side.
-
-```go
-var i int
-j := i // j is an int
-
-i := 42           // int
-f := 3.142        // float64
-g := 0.867 + 0.5i // complex128
-
-var i = 42           // int
-var f = 3.142        // float64
-var g = "hello"      // string
 ```
 
 **Multiple variable declarations**
