@@ -1,4 +1,4 @@
-# EVER GREEN CLASSIC HELLO WORLD PROGRAM
+# Classic hello world program
 
 *Here we will write hello world program in go.*
 
@@ -38,8 +38,8 @@ package main
 
 import "fmt"
 
-func main(){
-    fmt.Println("Hello world")
+func main() {
+    fmt.Println("Hello, World!")
 }
 ```
 
