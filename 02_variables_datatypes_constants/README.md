@@ -2,8 +2,8 @@
 
 ## Variable
 
-Variable is a symbolic name associated with a value and whose associated value may be changed anytime in program.
-It is storage unit of particular data type. A variable must be defined with the type of data it is holding.
+Variable is a symbolic name associated with a value and whose associated value may be changed anytime in the program.
+It is the storage unit of a particular data type. A variable must be defined with the type of data it is holding.
 
 ## Data types
 There are several data types in Go.
@@ -21,7 +21,7 @@ In some programming languages variable holds a `null` or `undefined` value when 
 
 ## Declaring a variable
 
-The `var` statement declares a list of variables. Type is at the last of statement.
+The `var` statement declares a list of variables. Type is at the last of the statement.
 
 ```go
 var varName dataType
@@ -36,7 +36,7 @@ var u uint
 
 **Variables with initializers**
 
-We can initilize variable while declaring.
+We can initialize variable while declaring.
 
 ```go
 var varName dataType = value
@@ -58,7 +58,7 @@ var g = "hello"      // string
 
 **Short-hand declaration**
 
-This is most commonly used variable declaration inside functions.
+This is the most commonly used variable declaration inside functions.
 
 ```go
 varName := value
@@ -70,7 +70,7 @@ s := "hello"
 ok := true
 ```
 
-*When declaring a variable without specifying it's type the variable's type is inferred from the value on the right hand side.*
+*When declaring a variable without specifying it's type the variable's type is inferred from the value on the right-hand side.*
 
 ```go
 var i int
@@ -105,7 +105,7 @@ var x, y, z = 0.867 + 0.5i, 4.65, true
 
 ## Constants
 
-Go supports constants of character, string, boolean, and numeric values. Constants is declaired using `const` keyword
+Go supports constants of character, string, boolean, and numeric values. Constants are declared using `const` keyword
 
 E.g:
 ```go
@@ -114,7 +114,7 @@ const str string = "constants"
 
 **Untyped and Typed**
 
-Constants can be declared with or without a type in Go. If we are declaring literal constant, then we are actually declaring declaring constants that are untyped and unnamed.
+Constants can be declared with or without a type in Go. If we are declaring literal constant, then we are declaring constants that are untyped and unnamed.
 
 E.g.:
 ```go
@@ -124,13 +124,13 @@ const f = 3.14
 ```
 The constants on the LHS of the declaration are named constants and the literal values on the RHS are unnamed constants.
 
-Typed constants don’t use the same type system as variables, they've  have their own implementation for representing the values that we associate with them.
+Typed constants don’t use the same type system as variables, they've their own implementation for representing the values that we associate with them.
 
-In case of typed constant, the declared type is used to associate the type’s precision limitations or kind of constant.
+In the case of typed constant, the declared type is used to associate the type’s precision limitations or kind of constant.
 
-In case of untyped constant, literal value will determine what kind.type the constant takes
+In the case of untyped constant, the literal value will determine what kind/type the constant takes
 
-Every GO compiler has flexibility to implement constant as they wish, within the mandatory set of [requirements](http://golang.org/ref/spec#Constants).
+Every GO compiler has the flexibility to implement constant as they wish, within the mandatory set of [requirements](http://golang.org/ref/spec#Constants).
 
 ***You can refer main.go file for examples***
 

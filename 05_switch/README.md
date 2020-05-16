@@ -17,7 +17,7 @@ switch expression {
 
 **Switch evaluation order**
 
-Switch cases evaluate cases from top to bottom and stops when a case succeeds. In below example it checks `case "Linux":` if os matches with Linux then it stops at that case else goes to next case.
+Switch cases evaluate cases from top to bottom and stops when a case succeeds. In below example, it checks `case "Linux":` if os matches with `Linux` then it stops at that case else go to the next case.
 
 ```go
 //Prints which OS you're using
@@ -52,9 +52,3 @@ To run:
 ```
 go run main.go
 ```
-
-
-
-
-
-
