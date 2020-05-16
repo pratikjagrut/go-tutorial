@@ -10,9 +10,9 @@ func main() {
 
 	j := [3]int{4, 5, 6}
 	fmt.Println(j)
-
 	fmt.Println("Len of J: ", len(j))
 
+	// 2D array
 	var k [2][2]int
 	for p := 0; p < 2; p++ {
 		for q := 0; q < 2; q++ {
