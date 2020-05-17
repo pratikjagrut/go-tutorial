@@ -6,7 +6,7 @@ package main
 import "fmt"
 
 func main() {
-	var i []int = []int{2, 1}
+	var i = []int{2, 1}
 
 	for j, k := range i {
 		fmt.Printf("Index: %d, Value: %d\n", j, k)
