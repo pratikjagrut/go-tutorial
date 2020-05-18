@@ -9,21 +9,24 @@ import (
 func show(arg string) {
 	for i := 0; i < 3; i++ {
 		fmt.Println(arg)
-		time.Sleep(1 * time.Second)
+		time.Sleep(700 * time.Millisecond)
 	}
 }
 
 func main() {
-	fmt.Println("**Start**")
-	go show("go")
-	show("pher")
-	fmt.Println("**Stop**")
+	show("go go go") //Normal function call, it will block execution of next statement till it returns the cotrol to main
+	fmt.Println()
+	go show("gopher") //Goroutine, won't block execution of next statement, it will run in background.
 
-	//Anonymous goroutine
+	//Anonymous goroutine, it will run asynchronously with show() goroutine
 	go func(msg string) {
-		fmt.Println(msg)
+		for i := 0; i < 3; i++ {
+			fmt.Println(msg)
+			time.Sleep(1 * time.Second)
+		}
 	}("go is fun")
 
-	time.Sleep(1 * time.Second)
-	fmt.Println("Done!")
+	time.Sleep(3 * time.Second) //This is to block main goroutine from terminating before other goroutine finish theire execution
+	fmt.Println()
+	fmt.Println("Main goroutine terminated")
 }
