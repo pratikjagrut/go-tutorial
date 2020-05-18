@@ -30,15 +30,22 @@ func main() {
 	//Print struct literals
 	fmt.Println(s1, s2, s3, s4)
 
+	fmt.Println()
+
 	// accessing fields
 	s := student{"Jessica Rich", 15}
 	fmt.Println(s)
 	s.name = "Jessica"
 	fmt.Println(s)
 
-	//access using pointer
+	fmt.Println()
+
+	//Pointers to struct
 	p := &s
-	fmt.Println(p.name, p.rollNo)
+	fmt.Println("Name: ", (*p).name)   //access field through *p
+	fmt.Println("Roll NO: ", p.rollNo) //access field through p
+
+	fmt.Println()
 
 	//methods on struct
 	s.updateStudent("Richie", 101)
