@@ -26,7 +26,7 @@ type rect struct {
 	width  float32
 }
 
-//Type rect is enfocred to use interface figure
+//This way we can enforce struct to implement all the methods of interface
 func newRect(length, width float32) figure {
 	return &rect{
 		length: length,
@@ -43,17 +43,6 @@ func (r *rect) perimeter() float32 {
 }
 
 //Interface values
-//Under the hood, interface values can be thought of
-//as a tuple of a value and a concrete type:(value, type)
-type I interface {
-	M()
-}
-
-type F float32
-
-func (f F) M() {
-	fmt.Printf("(%v, %T)\n", f, f)
-}
 
 func main() {
 	//Type circle implements interface figure
@@ -67,11 +56,9 @@ func main() {
 	fmt.Println("Perimeter of rect: ", r.perimeter())
 
 	fmt.Println("\nInterface values")
+
 	//Interface values
-	i := F(math.Pi)
-	i.M()
-	var p I //Nil Interface values
-	fmt.Printf("(%v, %T)\n", p, p)
+	fmt.Printf("(%v, %T)\n", c, c)
 
 	//The empty interface
 	fmt.Println("\nThe empty interface")
