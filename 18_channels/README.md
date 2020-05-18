@@ -18,7 +18,7 @@ ch := make(chan int)
 ```
 Data flow in the direction of this `<-` operator.
 
-By default, sends and receives block until the other side is ready. 
+By default, send and receive is block until the other side is ready. 
 This allows goroutines to synchronize without explicit locks or condition variables.
 
 Below is a simple example of send and receive data through a channel where it will block execution until the channel receives values(here 2 sec). 
@@ -36,7 +36,7 @@ fmt.Println(msg)
 
 ## Buffered channel
 
-Channels can be buffered. Provide the buffer length as the second argument to make to initialize a buffered channel.
+Channels can be buffered. Provide the buffer length as the second argument in `make()` to initialize a buffered channel.
 
 `ch := make(chan int, 100)`
 
@@ -55,7 +55,7 @@ fmt.Println(<-c2)
 
 ## Closing channel
 
-Closing channels after use are the secure practice of using them. A sender can close a channel to indicate that no more values will be sent. Channels aren't like files; you don't usually need to close them. Closing is only necessary when the receiver must be told there are no more values coming, such as to terminate a range loop.
+Closing a channel after use are the secure practice of using them. A sender can close a channel to indicate that no more values will be sent. Channels aren't like files; you don't usually need to close them. Closing is only necessary when the receiver must be told there are no more values coming, such as to terminate a range in for loop.
 
 `close(ch)` this way we can close the channel.
 
@@ -82,7 +82,7 @@ fmt.Println("Is channel c1 open: ", ok)
 
 **Range over channel**
 
-Like slices or maps, channels can also be iterated over using the range.
+Like slices or maps, channels can also be iterated over using the `range`.
 
 ```
 for i:= range ch{}
@@ -115,9 +115,9 @@ When using channels as function parameters, you can specify if a channel is mean
 
 While declaring channel we can declare them with:
 
-`var sendOnlyChan chan<- valueType` : send-only channel, we cannot read from, but can write to and close(), in simple word we can only put stuff in this channel we can not receive anything from it.
+`var sendOnlyChannel chan<- valueType` : send-only channel, we cannot read from, but can write to and close(), in simple word we can only put stuff in this channel we can not receive anything from it.
 
-`var receiveOnlyChan <-chan valueType` : receive-only channel, we can read from, but cannot write to or close(), in simple words we can receive stuff from this channel can not put anything into it.
+`var receiveOnlyChannel <-chan valueType` : receive-only channel, we can read from, but cannot write to or close(), in simple words we can receive stuff from this channel can not put anything into it.
 
 The point of the unidirectional channel is, sometimes we need the receiver to only receive data not send any but sender still has receive and send channel.
 
@@ -173,7 +173,7 @@ go func(done chan bool) {
 <-done 
 ```
 
-If you comment last line `<-done` main will terminate and hence you won't see any output from above goroutine.
+If you comment `<-done`, main goroutine will terminate and hence you won't see any output from above goroutine.
 
 ***You can refer main.go file for examples***
 
