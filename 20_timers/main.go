@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	//this is illustration is much likely time.Sleep()
+	//this is simple illustration, much similar to time.Sleep()
 	timer1 := time.NewTimer(2 * time.Second)
 	<-timer1.C
 	fmt.Println("Timer1 expired")
