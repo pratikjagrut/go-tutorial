@@ -15,14 +15,14 @@ func main() {
 			select {
 			case <-stoped:
 				fmt.Println("Ticker stoped!")
-				return //exit for loop
+				break //exit for loop
 			case t := <-ticker.C:
 				fmt.Println("Tick at ", t)
 			}
 		}
 	}()
 
-	time.Sleep(5000 * time.Millisecond) //sleeps for ticker execution
-	ticker.Stop()                       //stops ticker
+	time.Sleep(5 * time.Second) //sleeps for ticker execution
+	ticker.Stop()               //stops ticker
 	stoped <- true
 }
