@@ -19,6 +19,7 @@ func main() {
 	for i := 1; i < 4; i++ {
 		wg.Add(1) //Increments the counter
 		go goroutine(i, &wg)
+		time.Sleep(500 * time.Millisecond)
 	}
 	wg.Wait() //makes the main goroutine to wait until the counter becomes zero
 	fmt.Println("All goroutines finished their execution")
