@@ -1,6 +1,3 @@
-//For simple counter state or shared resource use we use atomic
-//but for more complex state we can use a mutex
-//to safely access data across multiple goroutines.
 package main
 
 import (
