@@ -1,6 +1,3 @@
-//To synchronize access to shared state across multiple goroutines
-//we can also use the built-in synchronization features of
-//goroutines and channels to achieve the same result as mutex.
 package main
 
 import (
@@ -10,8 +7,6 @@ import (
 	"time"
 )
 
-//This channel-based approach aligns with Go’s ideas of sharing memory by communicating
-//and having each piece of data owned by exactly 1 goroutine.
 func main() {
 	var readOps uint64  //Read count
 	var writeOps uint64 //Write count
