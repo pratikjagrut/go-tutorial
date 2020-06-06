@@ -4,17 +4,17 @@
 
 Putting it simply, `a test is a repeatable process that verifies whether or not something is working as intended`. 
 
-NO programmers can write bug free program. This is the pivotal reason that testing is an essential part of software developmemt process.
+NO programmers can write a bug-free program. This is the pivotal reason that testing is an essential part of the software development process.
 Writing tests for our code is a good way to ensure quality and improve reliability.
 
-GO provide very extensive support for testing unit componenets of our program.
-An unit component can be functions, structs, methods and pretty much anything that can work standalone and contribute to bigger goal.
+GO provide very extensive support for testing unit components of our program.
+A unit component can be functions, structs, methods and pretty much anything that can work standalone and contribute to a bigger goal.
 
 ## Testing in GO
 
 Package `testing` provides support for automated testing of Go packages.
 It is intended to be used in concert with the `go test` command,
-which automates execution of any function of the form `func TestXxx(*testing.T)`.
+which automates the execution of any function of the form `func TestXxx(*testing.T)`.
 
 **Example**
 
@@ -22,24 +22,24 @@ Here is an example of a method we want to test in the `main` package.
 
 ```go
 func sum(numbers ...int) int {
-	sum := 0
-	for _, n := range numbers {
-		sum += n
-	}
-	return sum
+    sum := 0
+    for _, n := range numbers {
+        sum += n
+    }
+    return sum
 }
 ```
 
 We then write our test in a separate file. 
 The test file can be in a different package or the same one.
 
-*Note: If you are concerned about getting test function exported within same package as of methods. Bettet to use different package for tests such as `package something_test`.*
+*Note: If you are concerned about getting test function exported within the same package as of methods. Better to use different package for tests such as `package something_test`.*
 
 Here we'll keep everything in `main` package.
 
 **Characteristics of a Golang test function:**
 
-- The first parameter of testing function needs to be `t *testing.T`.
+- The first parameter of the testing function needs to be `t *testing.T`.
 
 - Name of testing function begins with the word `Test` followed by a word or phrase `starting with a capital letter`
   `func TestSum(*testing.T)`.
@@ -54,12 +54,12 @@ Below is simple test for sum function:
 
 ```go
 func TestSum1(t *testing.T) {
-	total := sum(1, 2, 3, 4, 5, 6, 7, 8, 9)
-	if total != 45 {
-		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 45)
-	} else {
-		t.Logf("(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9), got: %d, want: %d.", total, 45)
-	}
+    total := sum(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    if total != 45 {
+        t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 45)
+    } else {
+        t.Logf("(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9), got: %d, want: %d.", total, 45)
+    }
 }
 ```
 
@@ -67,7 +67,7 @@ func TestSum1(t *testing.T) {
 
 There are two ways to run tests: 
 
-The first way is `local directory mode` where we run test using `go test` when our package is inside `$GOPATH`. 
+The first way is `local directory mode` where we run the test using `go test` when our package is inside `$GOPATH`. 
 
 ```
 go test
@@ -77,7 +77,7 @@ ok      std/github.com/pratikjagrut/go-tutorial/45_testing      0.002s
 ```
 
 The second way is to run tests in the `package list mode`.
-In this mode we list what packages to test.
+In this mode, we list what packages to test.
 
 e.g.
 
@@ -92,9 +92,9 @@ e.g.
 - `go test ./...` to test all the package in the current directory.
 
 
-**Running perticular tests**
+**Running particular tests**
 
-If we've a lots of tests then we can choose perticular tests run using `-run` flag.
+If we've lots of tests then we can choose particular tests to run using `-run` flag.
 
 ```
 go test -v -run TestSum1
@@ -122,36 +122,36 @@ ok      std/github.com/pratikjagrut/go-tutorial/45_testing      0.002s
 
 **Table-driven tests** 
 
-In go we often use table driven testing to be able to test all function scenarios. Usually table is a slice of anonymous structs, however you may define struct first or use an existing one. 
+In go, we often use table-driven testing to be able to test all function scenarios. Usually, the table is a slice of anonymous structs, however, you may define struct first or use an existing one. 
 
 A series of related checks can be implemented by looping over a slice of test cases.
 
 ```go
 func TestSum2(t *testing.T) {
-	tables := []struct {
-		x int
-		y int
-		n int
-	}{
-		{1, 1, 2},
-		{1, 2, 3},
-		{2, 2, 4},
-		{5, 2, 7},
-	}
+    tables := []struct {
+        x int
+        y int
+        n int
+    }{
+        {1, 1, 2},
+        {1, 2, 3},
+        {2, 2, 4},
+        {5, 2, 7},
+    }
 
-	for _, table := range tables {
-		total := sum(table.x, table.y)
-		if total != table.n {
+    for _, table := range tables {
+        total := sum(table.x, table.y)
+        if total != table.n {
             t.Errorf("Sum of (%d+%d) was incorrect, got: %d, want: %d.",
-				table.x, table.y, total, table.n)
-		} else {
-			t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
-		}
-	}
+                table.x, table.y, total, table.n)
+        } else {
+            t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
+        }
+    }
 }
 ```
 
-This approach, reduces the amount of repetitive code compared to repeating the same code for each test and makes it straightforward to add more test cases.
+This approach reduces the amount of repetitive code compared to repeating the same code for each test and makes it straightforward to add more test cases.
 
 ```
 go test -v
@@ -174,28 +174,28 @@ This test is a rewritten version of our earlier Table-driven tests using subtest
 
 ```go
 func TestSum3(t *testing.T) {
-	tables := []struct {
-		x int
-		y int
-		n int
-	}{
-		{1, 1, 2},
-		{1, 2, 3},
-		{2, 2, 4},
-		{5, 2, 7},
-	}
+    tables := []struct {
+        x int
+        y int
+        n int
+    }{
+        {1, 1, 2},
+        {1, 2, 3},
+        {2, 2, 4},
+        {5, 2, 7},
+    }
 
-	for _, table := range tables {
-		t.Run(fmt.Sprintf("Sum of %d, %d", table.x, table.y), func(t *testing.T) {
-			total := sum(table.x, table.y)
-			if total != table.n {
-				t.Errorf("Sum of (%d+%d) was incorrect, got: %d, want: %d.",
-				table.x, table.y, total, table.n)
-			} else {
-				t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
-			}
-		})
-	}
+    for _, table := range tables {
+        t.Run(fmt.Sprintf("Sum of %d, %d", table.x, table.y), func(t *testing.T) {
+            total := sum(table.x, table.y)
+            if total != table.n {
+                t.Errorf("Sum of (%d+%d) was incorrect, got: %d, want: %d.",
+                table.x, table.y, total, table.n)
+            } else {
+                t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
+            }
+        })
+    }
 }
 ```
 
@@ -220,7 +220,7 @@ PASS
 ok      std/github.com/pratikjagrut/go-tutorial/45_testing      0.002s
 ```
 
-One of the important benefit is, if any tests case fails then it does not halts the execution it runs the next test case.
+An important benefit is if any tests case fails then it does not halt the execution it runs the next test case.
 
 Alter the Table-driven test to fail.
 
@@ -235,7 +235,7 @@ Alter the Table-driven test to fail.
 
 *Tests without subtests.*
 
-This test is halted as soon as second test case failed.
+This test is halted as soon as the second test case failed.
 
 ```
 go test -v -run TestSum2
@@ -252,7 +252,7 @@ FAIL    std/github.com/pratikjagrut/go-tutorial/45_testing      0.002s
 
 *Tests with subtests*
 
-Even though second test case failed it continued to next tests.
+Even though the second test case failed it continued to the next tests.
 
 ```
 go test -v -run TestSum3
@@ -295,18 +295,18 @@ func TestFoo(t *testing.T) {
 }
 ```
 
-The setup and tear-down code will run if any of the enclosed subtests are run and will run at most once. This applies even if any of the subtests calls Skip, Fail, or Fatal.
+The setup and tear-down code will run if any of the enclosed subtests are run and will run at most once. This applies even if any of the subtests call Skip, Fail, or Fatal.
 
 
 **Control of Parallelism**
 
 Subtests allow fine-grained control over parallelism. To understand how to use subtests in the way it is important to understand the semantics of parallel tests.
 
-Each test is associated with a test function. A test is called a parallel test if its test function calls the `Parallel method on its instance of testing.T`. A parallel test `never runs concurrently with a sequential test` and its execution is suspended until its calling test function, that of the parent test, has returned. The `-parallel` flag defines the maximum number of parallel tests that can run in parallel.
+Each test is associated with a test function. A test is called a parallel test if its test function calls the `Parallel method on its instance of testing.T`. A parallel test `never runs concurrently with a sequential test` and its execution is suspended until its calling test function, that of the parent test has returned. The `-parallel` flag defines the maximum number of parallel tests that can run in parallel.
 
 `A test blocks until its test function returns and all of its subtests have completed`. This means that the parallel tests that are run by a sequential test will complete before any other consecutive sequential test is run.
 
-This behavior is identical for tests created by Run and top-level tests. In fact, under the hood top-level tests are implemented as subtests of a hidden master test.
+This behaviour is identical for tests created by Run and top-level tests. In fact, under the hood top-level tests are implemented as subtests of a hidden master test.
 
 ```go
 func TestGroupedParallel(t *testing.T) {
@@ -325,36 +325,36 @@ func TestGroupedParallel(t *testing.T) {
 
 The outer test will not complete until all parallel tests started by Run have completed. As a result, no other parallel tests can run in parallel to these parallel tests.
 
-Note that we need to capture the range variable to ensure that tc gets bound to the correct instance.
+*Note that we need to `capture the range variable` to ensure that `tc` gets bound to the correct instance.*
 
 The `TestSum3` is modified for parallelism.
 
 ```go
 func TestSum4(t *testing.T) {
-	tables := []struct {
-		x int
-		y int
-		n int
-	}{
-		{1, 1, 2},
-		{1, 2, 3},
-		{2, 2, 4},
-		{5, 2, 7},
-	}
+    tables := []struct {
+        x int
+        y int
+        n int
+    }{
+        {1, 1, 2},
+        {1, 2, 3},
+        {2, 2, 4},
+        {5, 2, 7},
+    }
 
-	for _, table := range tables {
-		table := table // capture range variable
-		t.Run(fmt.Sprintf("Sum of %d, %d", table.x, table.y), func(t *testing.T) {
-			total := sum(table.x, table.y)
-			t.Parallel()
-			if total != table.n {
-				t.Errorf("Sum of (%d+%d) was incorrect, got: %d, want: %d.", table.x, table.y, total, table.n)
-				t.Fatal("test case failed.")
-			} else {
-				t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
-			}
-		})
-	}
+    for _, table := range tables {
+        table := table // capture range variable
+        t.Run(fmt.Sprintf("Sum of %d, %d", table.x, table.y), func(t *testing.T) {
+            total := sum(table.x, table.y)
+            t.Parallel()
+            if total != table.n {
+                t.Errorf("Sum of (%d+%d) was incorrect, got: %d, want: %d.", table.x, table.y, total, table.n)
+                t.Fatal("test case failed.")
+            } else {
+                t.Logf("(%d + %d) , got: %d, want: %d.", table.x, table.y, total, table.n)
+            }
+        })
+    }
 }
 ```
 
