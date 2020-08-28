@@ -1,5 +1,7 @@
 # go-tutorial
 
+This repo could be consider as a collection of various golang constructs.
+
 ## Contents
 
 * [Installation](https://github.com/pratikjagrut/go-tutorial/tree/master/00_installation)
