@@ -1,6 +1,10 @@
 # go-tutorial
 
-This repo could be consider as a collection of various golang constructs.
+This repo could be considered as a collection of examples of various Golang constructs or topics or concepts.
+
+Each directory in this repo contains a `README.md` which explains the topic and a `main.go` which has a relevant code.
+
+The programmers are pretty much basic for easy understanding of concepts.
 
 ## Contents
 
