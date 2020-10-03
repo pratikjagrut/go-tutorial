@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-// Constant 
+// Constant
 const (
 	MaxUint = ^uint(0)
 	MinUint = 0
-	MaxInt = int(^uint(0) >> 1)
-	MinInt = -MaxInt - 1
+	MaxInt  = int(^uint(0) >> 1)
+	MinInt  = -MaxInt - 1
 )
 
 func main() {
