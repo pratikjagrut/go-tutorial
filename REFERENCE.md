@@ -29,3 +29,5 @@
 * https://www.calhoun.io/how-to-test-with-go/
 
 * https://gobyexample.com/
+
+* https://golang.org/ref/spec

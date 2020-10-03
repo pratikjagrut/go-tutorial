@@ -99,3 +99,5 @@ The programmers are pretty much basic for easy understanding of concepts.
 * [Context with http](https://github.com/pratikjagrut/go-tutorial/tree/master/44_context_with_http)
  
 * [Testing](https://github.com/pratikjagrut/go-tutorial/tree/master/45_testing)
+
+* [Numeric types range](https://github.com/pratikjagrut/go-tutorial/tree/master/46_numeric_types_range)
