@@ -31,3 +31,5 @@
 * https://gobyexample.com/
 
 * https://golang.org/ref/spec
+
+* https://blog.golang.org/slices-intro
