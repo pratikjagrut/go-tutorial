@@ -33,3 +33,5 @@
 * https://golang.org/ref/spec
 
 * https://blog.golang.org/slices-intro
+
+* https://yourbasic.org/
