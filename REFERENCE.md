@@ -35,3 +35,5 @@
 * https://blog.golang.org/slices-intro
 
 * https://yourbasic.org/
+
+* https://blog.golang.org/maps
