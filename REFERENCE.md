@@ -34,6 +34,8 @@
 
 * https://blog.golang.org/slices-intro
 
+* https://medium.com/rungo/interfaces-in-go-ab1601159b3a
+
 * https://yourbasic.org/
 
 * https://blog.golang.org/maps
