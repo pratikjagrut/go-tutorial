@@ -26,6 +26,10 @@
 
 * https://www.callicoder.com/golang-installation-setup-gopath-workspace/
 
+* https://golang.org/doc/gopath_code
+
+* https://golang.org/doc/code
+
 * https://www.calhoun.io/how-to-test-with-go/
 
 * https://gobyexample.com/
